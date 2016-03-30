@@ -1,8 +1,6 @@
 = simple_form_for(@order) do |f|
-  .input-field
-    = f.association :movie, as: :select
-  .input-field
-    = f.association :showtime, as: :select
+  = f.association :movie
+  = f.association :showtime, label_method: :display_name, collection: Showtime.upcoming
   = f.input :customer_name
   = f.input :customer_email
   = f.input :billing_address_1
