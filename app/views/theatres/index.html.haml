@@ -1,6 +1,21 @@
-%h1 Theatres
+%body
+  .container
+    .row
+      %br
+      %h4.title Theatres
+      = link_to 'New Theatre', new_theatre_path, class: 'waves-effect waves-light btn right'
 
-#theatres
-  - @theatres.each do |theatre|
-    %h2= link_to theatre.number
-    %p= theatre.capacity
+    .row
+      %table.striped
+        %thead
+          %tr
+            %th Theatre #
+            %th Total Capacity
+            %th Remaining Capacity
+        %tbody
+          #theatres
+          - @theatres.each do |theatre|
+            %tr
+              %td= theatre.number
+              %td= theatre.capacity
+              %td= 'some calculation'
