@@ -1,0 +1,7 @@
+= simple_form_for(@showtime) do |f|
+  .input-field
+    = f.association :movie, as: :select
+  .input-field
+    = f.association :theatre, as: :select
+  = f.input :time
+  = f.button :submit
