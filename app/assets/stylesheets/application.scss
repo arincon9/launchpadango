@@ -16,8 +16,8 @@
 
 @import "materialize";
 
-.brand-logo {
-  width: 40%;
+.logo-img {
+  margin: 10px;
 }
 
 nav {
@@ -32,4 +32,21 @@ nav {
 .movie-poster {
   width: 380px;
   height: 558px;
+}
+
+.panel-body {
+  background-color: #DADADA;
+}
+
+.lpl-blue {
+  background-color: #00ADEF;
+}
+
+.lpl-blue:hover {
+  background-color: #00ADEF;
+}
+
+.error-block {
+  color: darkred;
+  padding-left: 2%;
 }
