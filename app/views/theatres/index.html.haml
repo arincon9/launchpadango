@@ -1,0 +1,6 @@
+%h1 Theatres
+
+#theatres
+  - @theatres.each do |theatre|
+    %h2= link_to theatre.number
+    %p= theatre.capacity
