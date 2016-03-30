@@ -1,0 +1,19 @@
+%body
+  .container
+    .row
+      %br
+      %h4.title Currently Showing
+    .row
+      #movies
+        - @movies.each do |movie|
+          .col.s12.m6.l4
+            .card.hoverable
+              .card-image
+                - if movie.title == "Interstellar"
+                  =image_tag('interstellar.jpg', class: "movie-poster")
+                - else
+                  =image_tag('batvsup.jpg', class: "movie-poster")
+              .card-content
+                %h5= movie.title
+              .card-action
+                %a= link_to 'more info', movie
