@@ -1,0 +1,4 @@
+- if flash.any?
+  - flash.each do |_, message|
+    :javascript
+      Materialize.toast(#{message}, 5000)

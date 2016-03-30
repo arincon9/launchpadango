@@ -1,0 +1,14 @@
+%nav
+  .nav-wrapper
+    = link_to 'LaunchPadango', root_path, class: 'brand-logo'
+
+    = link_to '#', data: { activates: 'mobile-demo' } do
+      %i.fa.fa-bars
+
+    %ul.right.hide-on-med-and-down
+      %li
+        = link_to 'Admin', 'orders_path'
+
+    %ul#mobile-demo.side-nav
+      %li
+        = link_to 'Admin', 'orders_path'
