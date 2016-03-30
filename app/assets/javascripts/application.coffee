@@ -12,10 +12,12 @@
 #
 #= require jquery
 #= require jquery_ujs
-#= require turbolinks
 #= require materialize-sprockets
 #= require_tree .
 
-$('.dropdown-button').dropdown()
 
-$(".button-collapse").sideNav();
+
+$(document).ready ->
+  $('select').material_select()
+  $(".button-collapse").sideNav();
+  return
