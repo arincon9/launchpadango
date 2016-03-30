@@ -3,11 +3,16 @@ class Order < ActiveRecord::Base
   belongs_to :showtime, inverse_of: :orders
 
   validates :customer_name, presence: true
-  validates :customer_email, presence: true
-  validates :credit_card_number, presence: true
+  validates :customer_email, presence: true,
+                             email: true
+  validates :credit_card_number, presence: true,
+                                 credit_card_number: true,
+                                 numericality: { greater_than: 0 }
   validates :credit_card_cvv, presence: true,
-                              length: { maximum: 3 }
+                              length: { maximum: 3 },
+                              numericality: { greater_than: 0 }
   validates :credit_card_expiration, presence: true
   validates :billing_address_1, presence: true
-  validates :billing_zipcode, presence: true
+  validates :billing_zipcode, presence: true,
+                              numericality: { greater_than: 0 }
 end
