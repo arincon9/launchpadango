@@ -1,0 +1,39 @@
+%body
+  .container
+    .row
+      %br
+      .col.s12.l8
+        %h4.title Recent Orders
+        %table.striped.responsive-table
+          %thead
+            %tr
+              %th Movie Title
+              %th Showtime
+              %th Customer Name
+              %th Customer Email
+              %th Purchase Amount
+          %tbody
+            - if @orders.any?
+              #orders
+                - @orders.each do |order|
+                  %tr
+                    %td= order.movie.title
+                    %td= order.showtime.time.strftime("%A, %b %d @ %H:%M")
+                    %td= order.customer_name
+                    %td= order.customer_email
+                    %td= "Some Calculation"
+            - else
+              %p= 'There are currently no orders.'
+      .col.l1
+        %br
+      .col.s12.l3
+        %h4.title Admin Actions
+        .divider
+        .section
+          =link_to 'Theatres', theatres_path, class: 'waves-effect waves-light btn'
+          %br
+          %br
+          =link_to 'New Movie', new_movie_path, class: 'waves-effect waves-light btn red'
+          %br
+          %br
+          =link_to 'New Showtime', new_showtime_path, class: 'waves-effect waves-light btn purple'

@@ -1,0 +1,14 @@
+= simple_form_for(@order) do |f|
+  .input-field
+    = f.association :movie, as: :select
+  .input-field
+    = f.association :showtime, as: :select
+  = f.input :customer_name
+  = f.input :customer_email
+  = f.input :billing_address_1
+  = f.input :billing_address_2
+  = f.input :billing_zipcode
+  = f.input :credit_card_number
+  = f.input :credit_card_cvv
+  = f.input :credit_card_expiration
+  = f.button :submit
