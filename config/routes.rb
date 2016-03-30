@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  resources :theatres, except: [:index]
+  root "movies#index"
+
+  resources :theatres
+  resources :movies
 end
