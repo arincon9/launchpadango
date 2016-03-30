@@ -1,14 +1,13 @@
-%nav
-  .nav-wrapper
-    = link_to 'LaunchPadango', root_path, class: 'brand-logo'
-
-    = link_to '#', data: { activates: 'mobile-demo' } do
-      %i.fa.fa-bars
-
-    %ul.right.hide-on-med-and-down
-      %li
-        = link_to 'Admin', 'orders_path'
-
-    %ul#mobile-demo.side-nav
-      %li
-        = link_to 'Admin', 'orders_path'
+.navbar-fixed
+  %nav
+    .nav-wrapper
+      = link_to root_path do
+        =image_tag asset_path('logo.png'), :size => '300x47', class: 'logo-img brand-logo'
+      %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
+        %i.material-icons menu
+      %ul.right.hide-on-med-and-down
+        %li
+          = link_to 'Admin', orders_index_path
+      %ul.side-nav#mobile-demo
+        %li
+          = link_to 'Admin', orders_index_path
