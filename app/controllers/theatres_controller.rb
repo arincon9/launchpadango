@@ -1,6 +1,11 @@
 class TheatresController < ApplicationController
+  before_action :set_theatre, only: [:show, :edit, :update, :destroy]
+
   def index
     @theatres = Theatre.all
+  end
+
+  def show
   end
 
   def new
@@ -22,12 +27,9 @@ class TheatresController < ApplicationController
   end
 
   def edit
-    @theatre = Theatre.find(params[:id])
   end
 
   def update
-    @theatre = Theatre.find(params[:id])
-
     respond_to do |format|
       if @theatre.save
         format.html { redirect_to theatres_path, notice: 'Theatre was updated successfully.' }
@@ -40,14 +42,22 @@ class TheatresController < ApplicationController
   end
 
   def destroy
-    @theatre = Theatre.find(params[:id])
-
     @theatre.destroy
+
+    flash[:notice] = "Theatre has been deleted"
+    redirect_to theatres_path
   end
 
   protected
 
   def theatre_params
     params.require(:theatre).permit(:capacity, :number)
+  end
+
+  def set_theatre
+    @theatre = Theatre.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The theatre you were looking for could not be found."
+    redirect_to theatres_path
   end
 end
