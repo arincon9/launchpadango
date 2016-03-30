@@ -1,7 +1,7 @@
 = simple_form_for(@showtime) do |f|
   .input-field
-    = f.association :movie, as: :select
+    = f.association :movie
   .input-field
-    = f.association :theatre, as: :select
+    = f.association :theatre, label_method: :display_name
   = f.input :time
   = f.button :submit
