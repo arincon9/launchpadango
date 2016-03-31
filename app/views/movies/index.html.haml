@@ -21,11 +21,11 @@
               .card-reveal
                 %span.card-title.grey-text.text-darken-4
                   %i.material-icons.right close
-                  %h3= "#{movie.title}"
+                  %h4= "#{movie.title}"
                   .divider
                   .section
                 - if movie.showtimes.present?
                   - movie.showtimes. each do |showtime|
                     %p= showtime.future_shows
                 - else
-                  %p= 'Sorry there are currently no showtimes for this movie'
+                  %p.error-block Sorry there are currently no showtimes for this movie
