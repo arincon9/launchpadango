@@ -9,13 +9,13 @@ gem 'simple_form'
 gem 'materialize-sass'
 gem 'simple_form-materialize', github: 'patricklindsay/simple_form-materialize'
 gem 'jquery-rails'
-# gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem "font-awesome-rails"
 gem 'email_validator'
 gem 'credit_card_validations'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug'
@@ -30,4 +30,3 @@ group :development do
 
   gem 'spring'
 end
-
