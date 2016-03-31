@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :load_movie, only: [:new, :create]
+
   def index
     if params[:movie_id].present?
       @orders = Order.where(movie_id: params[:movie_id])
@@ -13,6 +15,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.movie  = @movie
 
     respond_to do |format|
       if @order.save
@@ -35,6 +38,10 @@ class OrdersController < ApplicationController
   def order_param_keys
     %i(customer_name customer_email credit_card_number
        credit_card_cvv credit_card_expiration billing_address_1
-       billing_address_2 billing_zipcode movie_id showtime_id)
+       billing_address_2 billing_zipcode showtime_id)
+  end
+
+  def load_movie
+    @movie = Movie.find(params[:movie_id])
   end
 end

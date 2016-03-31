@@ -1,5 +1,4 @@
-= simple_form_for(@order) do |f|
-  = f.input :movie_id, as: :hidden, input_html: { value: params[:movie_id] }
+= simple_form_for([@movie, @order]) do |f|
   = f.association :showtime, label_method: :display_name, collection: Showtime.for_movie(params[:movie_id]).upcoming
   = f.input :customer_name
   = f.input :customer_email

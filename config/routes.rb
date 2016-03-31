@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   resources :theatres
   resources :movies do
     resources :showtimes
-    resources :orders
+    resources :orders, only: [:new, :create]
   end
-  resources :orders
   resources :showtimes
 end
