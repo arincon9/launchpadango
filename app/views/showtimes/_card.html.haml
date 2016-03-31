@@ -5,9 +5,12 @@
 
   .divider
 
-  .section
-    - if movie.showtimes.present?
-      - movie.showtimes.upcoming.each do |showtime|
+.section
+  - if movie.showtimes.present?
+    - movie.showtimes.upcoming.each do |showtime|
+      - if showtime.sold_out?
+        %p.error-block= "#{showtime.display_name} (sold out)"
+      - else
         %p= showtime.display_name
-    - else
-      %p.error-block Sorry there are currently no showtimes for this movie
+  - else
+    %p.error-block Sorry there are currently no showtimes for this movie
