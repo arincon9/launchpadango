@@ -17,11 +17,19 @@ class Order < ActiveRecord::Base
   validates :billing_zipcode, presence: true,
                               numericality: { greater_than: 0 }
 
+  validate :capacity_is_available
+
   def purchase_amount
     if showtime.time.hour < 16
       "$11.00"
     else
       "$15.00"
+    end
+  end
+
+  def capacity_is_available
+    if showtime.sold_out?
+      errors.add(:showtime, "This show is sold out.")
     end
   end
 end
