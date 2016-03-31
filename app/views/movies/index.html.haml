@@ -3,7 +3,6 @@
     .row
       %br
       %h4.title Now Playing
-      = link_to 'Buy Ticket', new_order_path, class: 'waves-effect waves-light btn lpl-blue right'
     .row
       #movies.center-align
         - @movies.each do |movie|
@@ -26,4 +25,4 @@
                   .divider
                   .section
                 - movie.showtimes. each do |showtime|
-                  %p= showtime.display_name
+                  %p= showtime.future_shows
