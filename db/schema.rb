@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331204513) do
+ActiveRecord::Schema.define(version: 20160331205539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 20160331204513) do
     t.integer  "showtime_id"
     t.string   "customer_name"
     t.string   "credit_card_number"
-    t.integer  "credit_card_cvv"
+    t.string   "credit_card_cvv"
     t.date     "credit_card_expiration"
     t.string   "billing_address_1"
     t.string   "billing_address_2"
-    t.integer  "billing_zipcode"
+    t.string   "billing_zipcode"
     t.string   "customer_email"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
