@@ -8,9 +8,6 @@
 .section
   - if movie.showtimes.present?
     - movie.showtimes.upcoming.each do |showtime|
-      - if showtime.sold_out?
-        %p.error-block= "#{showtime.display_name} (sold out)"
-      - else
-        %p= showtime.display_name
+      %p= card_element(showtime)
   - else
     %p.error-block Sorry there are currently no showtimes for this movie

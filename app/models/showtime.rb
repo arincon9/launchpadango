@@ -6,7 +6,6 @@ class Showtime < ActiveRecord::Base
   validates :time, presence: true
 
   validate :time_not_in_past
-  validate :capacity_is_available
 
   scope :upcoming, -> { where(<<-SQL) }
     time > '#{Time.now}'
@@ -16,7 +15,9 @@ class Showtime < ActiveRecord::Base
   scope :for_movie, ->(movie_id) { where(movie_id: movie_id) }
 
   def display_name
-    time.strftime("%A, %b %d at %I:%M %p")
+    name = time.strftime("%A, %b %d at %I:%M %p")
+    name << " (Sold Out)" if sold_out?
+    name
   end
 
   def time_not_in_past
@@ -25,17 +26,11 @@ class Showtime < ActiveRecord::Base
     end
   end
 
-  def capacity_is_available
-    if sold_out?
-      errors.add(:base, "This show is sold out.")
-    end
-  end
-
   def remaining_capacity
-    theatre.capacity - orders.count
+    theatre.capacity.to_i - orders.count
   end
 
   def sold_out?
-    remaining_capacity.zero?
+    remaining_capacity <= 0
   end
 end
