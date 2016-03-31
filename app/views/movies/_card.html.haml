@@ -1,0 +1,17 @@
+.col.s6.m6.l4
+  .card.hoverable
+    .card-image
+      - if movie.title == 'Interstellar'
+        =image_tag('interstellar.jpg', class: 'movie-poster')
+      - else
+        =image_tag('batvsup.jpg', class: 'movie-poster')
+
+    .card-content
+      %h6= movie.title
+
+    .card-action
+      = link_to 'showtimes', "#", class: 'activator'
+      = link_to 'buy ticket', new_movie_order_path(movie)
+
+    .card-reveal
+      = render partial: 'showtimes/card', locals: { movie: movie }

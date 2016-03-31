@@ -1,0 +1,13 @@
+%span.card-title.grey-text.text-darken-4
+  %i.material-icons.right close
+
+  %h4= movie.title
+
+  .divider
+
+  .section
+    - if movie.showtimes.present?
+      - movie.showtimes.upcoming.each do |showtime|
+        %p= showtime.display_name
+    - else
+      %p.error-block Sorry there are currently no showtimes for this movie
