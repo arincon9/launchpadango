@@ -15,4 +15,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create]
   end
   resources :showtimes
+
+  namespace :admin do
+    resources :orders, only: [:index]
+  end
 end

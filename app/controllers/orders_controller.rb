@@ -1,14 +1,6 @@
 class OrdersController < ApplicationController
   before_action :load_movie, only: [:new, :create]
 
-  def index
-    if params[:movie_id].present?
-      @orders = Order.where(movie_id: params[:movie_id])
-    else
-      @orders = Order.all
-    end
-  end
-
   def new
     @order = Order.new
   end
