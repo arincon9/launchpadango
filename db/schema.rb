@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331203750) do
+ActiveRecord::Schema.define(version: 20160331204513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20160331203750) do
   add_index "showtimes", ["theatre_id"], name: "index_showtimes_on_theatre_id", using: :btree
 
   create_table "theatres", force: :cascade do |t|
-    t.integer  "capacity"
+    t.string   "capacity"
     t.string   "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
