@@ -18,7 +18,7 @@ class Order < ActiveRecord::Base
                               numericality: { greater_than: 0 }
 
   def purchase_amount
-    if showtime.time.hour < 4
+    if showtime.time.hour < 16
       "$11.00"
     else
       "$15.00"
