@@ -1,6 +1,7 @@
 = simple_form_for(@showtime) do |f|
   .input-field
     = f.association :movie
+
   .input-field
     = f.association :theatre, label_method: :display_name
   = f.input :time

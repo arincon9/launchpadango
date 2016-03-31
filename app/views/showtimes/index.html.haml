@@ -1,27 +1,24 @@
-%body
-  .container
-    .row
-      %br
-      %h4.title Showtimes
-    .row
-      %table.striped
-        %thead
+%br
+%h4.title Showtimes
+.row
+%table.striped
+  %thead
+    %tr
+      %th Movie
+      %th Auditorium
+      %th Time
+      %th Total Capacity
+      %th Remaining Capacity
+  %tbody
+    - if @showtimes.any?
+      #showtimes
+        - @showtimes.each do |showtime|
           %tr
-            %th Movie
-            %th Auditorium
-            %th Time
-            %th Total Capacity
-            %th Remaining Capacity
-        %tbody
-          - if @showtimes.any?
-            #showtimes
-              - @showtimes.each do |showtime|
-                %tr
-                  %td= showtime.movie.title
-                  %td= showtime.theatre.number
-                  %td= showtime.display_name
-                  %td= showtime.theatre.capacity
-                  %td= showtime.theatre.remaining_capacity
-          - else
-            %tr
-              %td= 'Sorry, There are currently no showtimes for this film please check back later.'
+            %td= showtime.movie.title
+            %td= showtime.theatre.number
+            %td= showtime.display_name
+            %td= showtime.theatre.capacity
+            %td= showtime.sold_out?
+    - else
+      %tr
+        %td= 'Sorry, There are currently no showtimes for this film please check back later.'

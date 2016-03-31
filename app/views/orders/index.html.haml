@@ -1,41 +1,38 @@
-%body
-  .container
-    .row
-      %br
-      .col.s12.l8
-        %h4.title Recent Orders
-        = select_tag(:movie_id, options_from_collection_for_select(Movie.all, :id, :title))
-        = submit_tag 'Filter'
-        %table.striped.responsive-table
-          %thead
+%br
+.col.s12.l8
+  %h4.title Recent Orders
+  = select_tag(:movie_id, options_from_collection_for_select(Movie.all, :id, :title))
+  = submit_tag 'Filter'
+  %table.striped.responsive-table
+    %thead
+      %tr
+        %th Movie Title
+        %th Showtime
+        %th Customer Name
+        %th Customer Email
+        %th Purchase Amount
+    %tbody
+      - if @orders.any?
+        #orders
+          - @orders.each do |order|
             %tr
-              %th Movie Title
-              %th Showtime
-              %th Customer Name
-              %th Customer Email
-              %th Purchase Amount
-          %tbody
-            - if @orders.any?
-              #orders
-                - @orders.each do |order|
-                  %tr
-                    %td= order.movie.title
-                    %td= order.showtime.display_name
-                    %td= order.customer_name
-                    %td= order.customer_email
-                    %td= order.purchase_amount
-            - else
-              %p= 'There are currently no orders.'
-      .col.l1
-        %br
-      .col.s12.l3
-        %h4.title Admin Actions
-        .divider
-        .section
-          =link_to 'Theatres', theatres_path, class: 'waves-effect waves-light btn'
-          %br
-          %br
-          =link_to 'New Movie', new_movie_path, class: 'waves-effect waves-light btn red'
-          %br
-          %br
-          =link_to 'New Showtime', new_showtime_path, class: 'waves-effect waves-light btn purple'
+              %td= order.movie.title
+              %td= order.showtime.display_name
+              %td= order.customer_name
+              %td= order.customer_email
+              %td= order.purchase_amount
+      - else
+        %p= 'There are currently no orders.'
+.col.l1
+  %br
+.col.s12.l3
+  %h4.title Admin Actions
+  .divider
+  .section
+    =link_to 'Theatres', theatres_path, class: 'waves-effect waves-light btn'
+    %br
+    %br
+    =link_to 'New Movie', new_movie_path, class: 'waves-effect waves-light btn red'
+    %br
+    %br
+    =link_to 'New Showtime', new_showtime_path, class: 'waves-effect waves-light btn purple'

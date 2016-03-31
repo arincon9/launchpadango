@@ -1,8 +1,5 @@
-.container
-  .row
-    %br
-    %h4.title Now Playing
-  .row
-    #movies.center-align
-      - @movies.each do |movie|
-        = render partial: 'card', locals: { movie: movie }
+%h4.title Now Playing
+.row
+  #movies.center-align
+    - @movies.each do |movie|
+      = render partial: 'card', locals: { movie: movie }

@@ -1,9 +1,6 @@
-%body
-  .container
-    .row
-      %br
-      %h4.title
-        New Order for
-        = Movie.find(params[:movie_id]).title
-      %br
-      = render 'form'
+%br
+%h4.title
+  New Order for
+  = Movie.find(params[:movie_id]).title
+%br
+= render 'form'
