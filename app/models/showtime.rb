@@ -6,6 +6,7 @@ class Showtime < ActiveRecord::Base
   validates :time, presence: true
 
   validate :time_not_in_past
+  validate :capacity_is_available
 
   scope :upcoming, -> { where(<<-SQL) }
     time > '#{Time.now}'
@@ -24,9 +25,17 @@ class Showtime < ActiveRecord::Base
     end
   end
 
-  def future_shows
-    if time > Time.now
-      time.strftime("%A, %b %d at %I:%M %p")
+  def capacity_is_available
+    if sold_out?
+      errors.add(:base, "This show is sold out.")
     end
+  end
+
+  def remaining_capacity
+    theatre.capacity - orders.count
+  end
+
+  def sold_out?
+    remaining_capacity.zero?
   end
 end
