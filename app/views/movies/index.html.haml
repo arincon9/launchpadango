@@ -9,10 +9,10 @@
           .col.s6.m6.l4
             .card.hoverable
               .card-image
-                - if movie.title == "Interstellar"
-                  =image_tag('interstellar.jpg', class: "movie-poster")
+                - if movie.title == 'Interstellar'
+                  =image_tag('interstellar.jpg', class: 'movie-poster')
                 - else
-                  =image_tag('batvsup.jpg', class: "movie-poster")
+                  =image_tag('batvsup.jpg', class: 'movie-poster')
               .card-content
                 %h6= movie.title
               .card-action
@@ -24,5 +24,8 @@
                   %h3= "#{movie.title}"
                   .divider
                   .section
-                - movie.showtimes. each do |showtime|
-                  %p= showtime.future_shows
+                - if movie.showtimes.present?
+                  - movie.showtimes. each do |showtime|
+                    %p= showtime.future_shows
+                - else
+                  %p= 'Sorry there are currently no showtimes for this movie'
