@@ -1,0 +1,11 @@
+= @order.customer_name
+
+%p= "Thanks for purchasing a movie ticket. Below is your receipt."
+
+%h4= "For the movie:"
+%p= @order.movie.title
+%h4= "Your showtime is:"
+%p= @order.showtime.display_name
+%h4= "Total Amount Paid:"
+%p= @order.purchase_amount
+

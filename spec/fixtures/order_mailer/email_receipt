@@ -1,0 +1,3 @@
+OrderMailer#email_receipt
+
+Hi, find me in app/views/order_mailer/email_receipt
