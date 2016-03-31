@@ -3,20 +3,25 @@
     .row
       %br
       %h4.title Showtimes
-      = link_to 'Buy Ticket', new_order_path, class: 'waves-effect waves-light btn lpl-blue'
     .row
       %table.striped
         %thead
           %tr
+            %th Movie
             %th Auditorium
             %th Time
+            %th Total Capacity
+            %th Remaining Capacity
         %tbody
           - if @showtimes.any?
             #showtimes
               - @showtimes.each do |showtime|
                 %tr
+                  %td= showtime.movie.title
                   %td= showtime.theatre.number
-                  %td= showtime.time.strftime("%A, %b %d @ %H:%M")
+                  %td= showtime.display_name
+                  %td= showtime.theatre.capacity
+                  %td= showtime.theatre.remaining_capacity
           - else
             %tr
               %td= 'Sorry, There are currently no showtimes for this film please check back later.'
