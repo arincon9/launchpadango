@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :theatres
   resources :movies do
     resources :showtimes
+    resources :orders
   end
   resources :orders
   resources :showtimes
