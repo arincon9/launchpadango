@@ -1,5 +1,6 @@
 %br
 %h4.title Showtimes
+=link_to 'New Showtime', new_showtime_path, class: 'waves-effect waves-light btn purple right'
 .row
 %table.striped
   %thead
@@ -18,7 +19,7 @@
             %td= showtime.theatre.number
             %td= showtime.display_name
             %td= showtime.theatre.capacity
-            %td= showtime.sold_out?
+            %td= showtime.remaining_capacity
     - else
       %tr
         %td= 'Sorry, There are currently no showtimes for this film please check back later.'
