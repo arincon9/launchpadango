@@ -1,4 +1,4 @@
 - if flash.any?
-  - flash.each do |_, message|
+  - flash.each do |key, message|
     :coffeescript
-      `Materialize.toast("#{message}", 5000)`
+      `Materialize.toast("#{message}", 5000, "toast-#{key}")`
