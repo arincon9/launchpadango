@@ -27,7 +27,7 @@ class Showtime < ActiveRecord::Base
   end
 
   def remaining_capacity
-    theatre.capacity.to_i - orders.count
+    theatre.capacity.to_i - orders_count
   end
 
   def sold_out?

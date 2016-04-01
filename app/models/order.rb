@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to :movie, inverse_of: :orders
-  belongs_to :showtime, inverse_of: :orders
+  belongs_to :showtime, inverse_of: :orders, counter_cache: true
   belongs_to :theatre, inverse_of: :orders
 
   validates :customer_name, presence: true
@@ -20,7 +20,7 @@ class Order < ActiveRecord::Base
   validate :capacity_is_available
 
   def purchase_amount
-    if showtime.time.hour < 16
+    if cached_showtime_time.hour < 16
       "$11.00"
     else
       "$15.00"
