@@ -11,3 +11,5 @@
       %p= "#{@movie.runtime} min."
       %h5= "Rating:"
       %p= "#{@movie.rating} / 10 "
+
+      = link_to 'buy ticket', new_movie_order_path(@movie), class: 'waves-effect waves-light btn amber darken-4 right'
