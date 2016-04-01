@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401021930) do
+ActiveRecord::Schema.define(version: 20160401023344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,8 +54,9 @@ ActiveRecord::Schema.define(version: 20160401021930) do
     t.datetime "time"
     t.integer  "movie_id"
     t.integer  "theatre_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "orders_count", default: 0
   end
 
   add_index "showtimes", ["movie_id"], name: "index_showtimes_on_movie_id", using: :btree
