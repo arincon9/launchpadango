@@ -9,13 +9,12 @@ class Movie < ActiveRecord::Base
 
   def self.from_imdb(imdb_record)
     new.tap do |movie|
-      movie.imdb_id     = imdb_record.id
-      movie.title       = imdb_record.title
-      movie.description = imdb_record.plot_summary
-      movie.runtime     = imdb_record.length
-      movie.rating      = imdb_record.rating
-      movie.image_url   = imdb_record.poster
-      movie.trailer_url = imdb_record.trailer_url
+      movie.imdb_id     = imdb_record[:imdb_id]
+      movie.title       = imdb_record[:title]
+      movie.description = imdb_record[:plot]
+      movie.runtime     = imdb_record[:runtime]
+      movie.rating      = imdb_record[:imdb_rating]
+      movie.image_url   = imdb_record[:poster]
     end
   end
 end

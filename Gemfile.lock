@@ -85,9 +85,10 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
-    imdb (0.8.1)
-      nokogiri (>= 1.6.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -109,8 +110,11 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
+    multi_xml (0.5.5)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    omdbapi (0.2.1)
+      httparty (>= 0.13)
     pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -218,10 +222,10 @@ DEPENDENCIES
   figaro
   font-awesome-rails
   haml-rails
-  imdb
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass
+  omdbapi
   pg
   pry
   pry-byebug
