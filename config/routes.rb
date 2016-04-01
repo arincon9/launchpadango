@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root "movies#index"
 
-  resources :movies, only: [:index] do
+  resources :movies, only: [:index, :show] do
     resources :showtimes
     resources :orders, only: [:new, :create]
   end

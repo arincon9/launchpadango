@@ -4,6 +4,6 @@ class MoviesController < ApplicationController
   end
 
   def show
-    #TODO: Add this
+    @movie = Movie.find(params[:id])
   end
 end

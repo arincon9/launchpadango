@@ -1,11 +1,13 @@
-- title(@movie.title, 'Movies')
-%h1= @movie.title
-%h5= "Synopsis:"
-%p= "#{@movie.description}"
-%h5= "Runtime:"
-%p= "#{@movie.runtime} min."
-
-= link_to 'Edit Movie', edit_movie_path(@movie)
-- 2.times do
-%br
-= link_to 'Delete Movie', movie_path(@movie), method: :delete, data: { confirm: "Are you sure you want to delete this movie?" }
+.row.well.z-depth-3
+  %h1.title= @movie.title
+  %br
+  .row
+    .col.l4
+      = image_tag @movie.image_url, class: 'movie-poster'
+    .col.l8
+      %h5= "Synopsis:"
+      %p= "#{@movie.description}"
+      %h5= "Runtime:"
+      %p= "#{@movie.runtime} min."
+      %h5= "Rating:"
+      %p= "#{@movie.rating} / 10 "
