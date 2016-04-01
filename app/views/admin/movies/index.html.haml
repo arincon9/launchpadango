@@ -1,19 +1,19 @@
-- if @movies.any?
-  %table.striped.responsive-table
-    %thead
-      %tr
-        %th Movie Title
-        %th Run Time
-        %th
-    %tbody
-      #movies
-        - @movies.each do |movie|
-          %tr
-            %td= movie.title
-            %td= movie.runtime
-            %td
-              = link_to [:admin, movie], method: :delete, data: { confirm: 'Are you sure?' }, class: 'waves-effect waves-light btn-small' do
-                %i.material-icons delete
+.row.well.z-depth-3
+  %h4.title Movies
+  - if @movies.any?
+    %table.striped.responsive-table
+      %thead
+        %tr
+          %th Movie Title
+          %th
+      %tbody
+        #movies
+          - @movies.each do |movie|
+            %tr
+              %td= movie.title
+              %td
+                = link_to [:admin, movie], method: :delete, data: { confirm: 'Are you sure?' }, class: 'waves-effect waves-light btn-small' do
+                  %i.material-icons delete
 
-- else
-  %p.error-block= 'There are currently no movies in the database.'
+  - else
+    %p.error-block= 'There are currently no movies in the database.'

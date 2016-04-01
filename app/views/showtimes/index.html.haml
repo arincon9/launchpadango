@@ -2,24 +2,23 @@
 %h4.title Showtimes
 =link_to 'New Showtime', new_showtime_path, class: 'waves-effect waves-light btn purple right'
 .row
-%table.striped
-  %thead
-    %tr
-      %th Movie
-      %th Auditorium
-      %th Time
-      %th Total Capacity
-      %th Remaining Capacity
-  %tbody
-    - if @showtimes.any?
-      #showtimes
-        - @showtimes.each do |showtime|
-          %tr
-            %td= showtime.movie.title
-            %td= showtime.theatre.number
-            %td= showtime.display_name
-            %td= showtime.theatre.capacity
-            %td= showtime.remaining_capacity
-    - else
-      %tr
-        %td= 'Sorry, There are currently no showtimes for this film please check back later.'
+  - if @showtimes.any?
+    %table.striped
+      %thead
+        %tr
+          %th Movie
+          %th Auditorium
+          %th Time
+          %th Total Capacity
+          %th Remaining Capacity
+      %tbody
+        #showtimes
+          - @showtimes.each do |showtime|
+            %tr
+              %td= showtime.movie.title
+              %td= showtime.theatre.number
+              %td= showtime.display_name
+              %td= showtime.theatre.capacity
+              %td= showtime.remaining_capacity
+  - else
+    %p.error-block= 'There are currently no movies in the database.'
