@@ -52,11 +52,10 @@ module Admin
     end
 
     def build_from_imdb
-      imdb_record = ImdbInterface.find_movie(params[:movie][:imdb_id])
+      record = ImdbInterface.find_movie(params[:movie][:imdb_id])
 
-      # API request only made when a movie attribute is called
-      if imdb_record.title
-        Movie.from_imdb(imdb_record)
+      if record
+        Movie.from_imdb(record)
       else
         @movie.errors.add(:imdb_id, "IMDB ID is not valid")
       end

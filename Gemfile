@@ -16,7 +16,7 @@ gem "font-awesome-rails"
 gem 'email_validator'
 gem 'credit_card_validations'
 gem 'figaro'
-gem 'omdbapi'
+gem 'themoviedb'
 gem 'puma'
 
 group :development, :test do
