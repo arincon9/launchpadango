@@ -32,20 +32,13 @@ class MoviesController < ApplicationController
   def update
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to movies_path, notice: 'Movie was updated successfully.' }
+        format.html { redirect_to movies_path, notice: 'Movie was updated successfully' }
         format.js
       else
         format.html { render 'edit' }
         format.js
       end
     end
-  end
-
-  def destroy
-    @movie.destroy
-
-    flash[:notice] = "Movie has been deleted."
-    redirect_to movies_path
   end
 
   protected
