@@ -7,7 +7,9 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.movie  = @movie
+    @order.movie = @movie
+    @order.cached_movie_title  = @movie.title
+    @order.cached_showtime_name = @order.showtime.display_name
 
     respond_to do |format|
       if @order.save

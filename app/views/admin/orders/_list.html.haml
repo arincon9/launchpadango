@@ -11,8 +11,8 @@
       #orders
         - orders.each do |order|
           %tr
-            %td= order.movie.title
-            %td= order.showtime.display_name
+            %td= order.cached_movie_title
+            %td= order.cached_showtime_name
             %td= order.customer_name
             %td= order.customer_email
             %td= order.purchase_amount
