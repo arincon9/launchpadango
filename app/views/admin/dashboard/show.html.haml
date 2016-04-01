@@ -1,16 +1,31 @@
 %h4.title Admin Actions
 .divider
-.section
-  = link_to 'Orders', admin_orders_path, class: 'waves-effect waves-light btn'
+.section.center-align
+  = link_to admin_orders_path, class: 'waves-effect waves-light btn-large green darken-3' do
+    %i.material-icons.left credit_card
+    Orders
   %br
   %br
-  =link_to 'Theatres', admin_theatres_path, class: 'waves-effect waves-light btn'
+  =link_to admin_theatres_path, class: 'waves-effect waves-light btn-large pink' do
+    %i.material-icons.left local_movies
+    Theatres
   %br
   %br
-  = link_to 'Movies', admin_movies_path, class: 'waves-effect waves-light btn pink'
+  = link_to admin_movies_path, class: 'waves-effect waves-light btn-large' do
+    %i.material-icons.left movies
+    Movies
   %br
   %br
-  =link_to 'New Movie', new_admin_movie_path, class: 'waves-effect waves-light btn red'
+  =link_to new_admin_movie_path, class: 'waves-effect waves-light btn-large teal accent-4' do
+    %i.material-icons.left movie_filter
+    New Movie
   %br
   %br
-  =link_to 'New Showtime', new_showtime_path, class: 'waves-effect waves-light btn purple'
+  =link_to showtimes_path, class: 'waves-effect waves-light btn-large indigo' do
+    %i.material-icons.left access_time
+    Showtimes
+  %br
+  %br
+  =link_to new_showtime_path, class: 'waves-effect waves-light btn-large blue' do
+    %i.material-icons.left alarm_add
+    New Showtime
