@@ -12,7 +12,7 @@ class Movie < ActiveRecord::Base
       movie.imdb_id     = imdb_record[:imdb_id]
       movie.title       = imdb_record[:title]
       movie.description = imdb_record[:plot]
-      movie.runtime     = imdb_record[:runtime]
+      movie.runtime     = imdb_record[:runtime].to_i
       movie.rating      = imdb_record[:imdb_rating]
       movie.image_url   = imdb_record[:poster]
     end
