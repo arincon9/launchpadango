@@ -25,5 +25,8 @@ module LaunchPadango
 
     # Autoload additional files/directories
     config.autoload_paths += %W(#{config.root}/lib)
+
+    # Send email through SMTP
+    config.action_mailer.delivery_method = :smtp
   end
 end
