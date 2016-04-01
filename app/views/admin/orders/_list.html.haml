@@ -1,0 +1,20 @@
+- if orders.any?
+  %table.striped.responsive-table
+    %thead
+      %tr
+        %th Movie Title
+        %th Showtime
+        %th Customer Name
+        %th Customer Email
+        %th Purchase Amount
+    %tbody
+      #orders
+        - orders.each do |order|
+          %tr
+            %td= order.movie.title
+            %td= order.showtime.display_name
+            %td= order.customer_name
+            %td= order.customer_email
+            %td= order.purchase_amount
+- else
+  %p.error-block= 'There are currently no orders for this film.'
