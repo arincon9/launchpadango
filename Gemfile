@@ -17,6 +17,7 @@ gem 'email_validator'
 gem 'credit_card_validations'
 gem 'figaro'
 gem 'imdb'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
