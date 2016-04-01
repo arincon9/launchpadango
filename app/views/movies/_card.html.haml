@@ -4,7 +4,7 @@
       = image_tag movie.image_url, class: 'movie-poster'
 
     .card-content
-      = link_to movie.title, movie, class: 'h6'
+      = link_to movie.title, movie, class: 'h6 truncate'
 
     .card-action
       = link_to 'showtimes', "#", class: 'activator'
