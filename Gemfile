@@ -16,6 +16,7 @@ gem "font-awesome-rails"
 gem 'email_validator'
 gem 'credit_card_validations'
 gem 'figaro'
+gem 'imdb'
 
 group :development, :test do
   gem 'byebug'

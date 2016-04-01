@@ -1,10 +1,7 @@
 .col.s6.m6.l4
   .card.hoverable
     .card-image
-      - if movie.title == 'Interstellar'
-        =image_tag('interstellar.jpg', class: 'movie-poster')
-      - else
-        =image_tag('batvsup.jpg', class: 'movie-poster')
+      = image_tag movie.image_url, class: 'movie-poster'
 
     .card-content
       %h6= movie.title

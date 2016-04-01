@@ -1,5 +1,9 @@
 = simple_form_for([:admin, @movie]) do |f|
+  = f.input :imdb_id, label: "IMDB ID"
   = f.input :title
-  = f.input :description
+  = f.input :description, as: :string
   = f.input :runtime
+  = f.input :rating
+  = f.input :image_url
+  = f.input :trailer_url
   = f.button :submit

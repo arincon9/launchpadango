@@ -9,7 +9,7 @@ module Admin
     end
 
     def create
-      @movie = Movie.new(movie_params)
+      @movie = build_movie
 
       respond_to do |format|
         if @movie.save
@@ -35,7 +35,31 @@ module Admin
     protected
 
     def movie_params
-      params.require(:movie).permit(:title, :description, :runtime)
+      params.require(:movie).permit(:title, :description, :runtime, :image_url, :rating, :trailer_url)
+    end
+
+    def build_movie
+      if params[:movie][:imdb_id].present?
+        build_from_imdb
+      else
+        build_from_form
+      end
+
+    end
+
+    def build_from_form
+      Movie.new(movie_params)
+    end
+
+    def build_from_imdb
+      imdb_record = ImdbInterface.find_movie(params[:movie][:imdb_id])
+
+      # API request only made when a movie attribute is called
+      if imdb_record.title
+        Movie.from_imdb(imdb_record)
+      else
+        @movie.errors.add(:imdb_id, "IMDB ID is not valid")
+      end
     end
   end
 end
