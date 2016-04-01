@@ -7,5 +7,5 @@
   = f.input :billing_zipcode
   = f.input :credit_card_number
   = f.input :credit_card_cvv
-  = f.input :credit_card_expiration
+  = f.input :credit_card_expiration, discard_day: true
   = f.button :submit
