@@ -1,0 +1,7 @@
+big_fancy_auditorium:
+  number: 1
+  capacity: 600
+
+small_theatre:
+  number: 2
+  capacity: 1

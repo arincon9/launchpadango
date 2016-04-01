@@ -12,6 +12,7 @@ class Movie < ActiveRecord::Base
       movie.description = imdb_record["overview"]
       movie.rating      = imdb_record["vote_average"]
       movie.image_url   = imdb_record["poster_path"]
+      movie.runtime     = imdb_record["runtime"]
     end
   end
 end

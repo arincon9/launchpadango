@@ -1,0 +1,13 @@
+bob_watches_interstellar:
+  movie: interstellar
+  showtime: noon_on_monday_june_1
+  theatre: big_fancy_auditorium
+  credit_card_number: 4111111111111111
+  credit_card_cvv: 123
+  credit_card_expiration: <%= Date.today + 1.year %>
+  customer_email: bob@hotmail.com
+  customer_name: Bob
+  billing_address_1: 1234 South Street
+  billing_zipcode: 90210
+  cached_showtime_time: <%= DateTime.new(2016, 6, 1, 12, 0, 0) %>
+  cached_movie_title: Interstellar

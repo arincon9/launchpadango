@@ -1,0 +1,9 @@
+noon_on_monday_june_1:
+  time: <%= DateTime.new(2016, 6, 1, 12, 0, 0) %>
+  theatre: big_fancy_auditorium
+  movie: interstellar
+
+monday_morning:
+  time: <%= DateTime.new(2016, 6, 1, 9, 0, 0) %>
+  theatre: small_theatre
+  movie: interstellar

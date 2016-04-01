@@ -21,6 +21,8 @@ class Showtime < ActiveRecord::Base
   end
 
   def time_not_in_past
+    return unless time
+
     if time < Time.now
       errors.add(:time, "Show time must be set for a future date.")
     end
