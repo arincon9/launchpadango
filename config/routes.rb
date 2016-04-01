@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root "movies#index"
 
   resources :theatres
-  resources :movies do
+  resources :movies, only: [:index] do
     resources :showtimes
     resources :orders, only: [:new, :create]
   end
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, only: [:index]
-    resources :movies, only: [:index, :destroy]
+    resources :movies, only: [:index, :new, :create, :destroy]
     resource :dashboard, only: [:show], controller: :dashboard
   end
 end
