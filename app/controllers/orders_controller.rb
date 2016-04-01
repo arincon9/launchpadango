@@ -10,11 +10,12 @@ class OrdersController < ApplicationController
     @order.movie = @movie
     @order.cached_movie_title  = @movie.title
     @order.cached_showtime_name = @order.showtime.display_name
+    @order.cached_showtime_time = @order.showtime.time
 
     respond_to do |format|
       if @order.save
         OrderMailer.email_receipt(@order).deliver
-        format.html { redirect_to root_path, notice: 'Order completed.' }
+        format.html { redirect_to root_path, notice: 'Order completed' }
         format.js
       else
         format.html { render 'new' }
