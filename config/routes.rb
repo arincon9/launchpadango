@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   root "movies#index"
 
-  resources :theatres
   resources :movies, only: [:index] do
     resources :showtimes
     resources :orders, only: [:new, :create]
@@ -17,8 +16,9 @@ Rails.application.routes.draw do
   resources :showtimes
 
   namespace :admin do
-    resources :orders, only: [:index]
-    resources :movies, only: [:index, :new, :create, :destroy]
-    resource :dashboard, only: [:show], controller: :dashboard
+    resources :orders,    only: [:index]
+    resources :movies,    only: [:index, :new, :create, :destroy]
+    resources :theatres,  only: [:index, :new, :create, :edit, :update, :destroy]
+    resource  :dashboard, only: [:show], controller: :dashboard
   end
 end
