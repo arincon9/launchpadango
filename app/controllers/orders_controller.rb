@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        OrderMailer.email_receipt(@order).deliver
         format.html { redirect_to root_path, notice: 'Order completed' }
         format.js
       else

@@ -19,6 +19,8 @@ class Order < ActiveRecord::Base
 
   validate :capacity_is_available
 
+  after_create :send_confirmation_email
+
   def purchase_amount
     if cached_showtime_time.hour < 16
       "$11.00"
@@ -31,5 +33,9 @@ class Order < ActiveRecord::Base
     if showtime.sold_out?
       errors.add(:showtime, "This show is sold out.")
     end
+  end
+
+  def send_confirmation_email
+    OrderMailer.email_receipt(self).deliver
   end
 end
