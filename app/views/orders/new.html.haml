@@ -1,6 +1,6 @@
-%br
-%h4.title
-  New Order for
-  = Movie.find(params[:movie_id]).title
-%br
-= render 'form'
+.row.well.z-depth-3
+  %h4.title
+    New Order for
+    = Movie.find(params[:movie_id]).title
+  %br
+  = render 'form'

@@ -16,6 +16,7 @@ class Order < ActiveRecord::Base
   validates :billing_address_1, presence: true
   validates :billing_zipcode, presence: true,
                               numericality: { greater_than: 0 }
+  validates :showtime, presence: true
 
   validate :capacity_is_available
 
